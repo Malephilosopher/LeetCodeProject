@@ -1,7 +1,5 @@
 package 剑指Offer.Day14;
 
-import 剑指Offer.Day11.ReverseWords;
-
 public class MovingCount {
 
     int[][] dirs = {{1, 0}, {0, 1}};

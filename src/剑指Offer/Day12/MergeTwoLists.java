@@ -1,4 +1,4 @@
-package 剑指Offer.Day10;
+package 剑指Offer.Day12;
 
 public class MergeTwoLists {
 

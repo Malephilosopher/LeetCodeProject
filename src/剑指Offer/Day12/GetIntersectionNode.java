@@ -1,4 +1,6 @@
-package 剑指Offer.Day10;
+package 剑指Offer.Day12;
+
+import 剑指Offer.Day12.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;

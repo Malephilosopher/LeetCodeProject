@@ -1,4 +1,4 @@
-package 剑指Offer.Day9;
+package 剑指Offer.Day10;
 
 public class TranslateNum {
 
