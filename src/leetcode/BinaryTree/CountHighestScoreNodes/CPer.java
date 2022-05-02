@@ -1,11 +1,14 @@
 package leetcode.BinaryTree.CountHighestScoreNodes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CPer {
 
     long maxScore = 0;
     int cnt = 0;
     int n;
-    List<Integer>[] children;
+     List<Integer>[] children;
 
     public int countHighestScoreNodes(int[] parents) {
         n = parents.length;
