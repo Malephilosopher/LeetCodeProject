@@ -1,33 +1,42 @@
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Test {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String[] line = sc.nextLine().split(" ");
-        int n = Integer.parseInt(line[0]);
-        int m = Integer.parseInt(line[1]);
 
-        List<List<Integer>> C = new ArrayList<>();
-        for (int i = 0; i <= n - 1; ++i) {
-            List<Integer> row = new ArrayList<>();
-            for (int j = 0; j <= i; ++j) {
-                if (j == 0 || j == i) {
-                    row.add(1);
-                } else {
-                    row.add(C.get(i - 1).get(j - 1) + C.get(i - 1).get(j));
-                }
-            }
-            C.add(row);
-        }
-        System.out.println(C.get(n - 1).get(m - 1));
+        System.out.println(Math.pow(10, 26) % 391);
 
     }
 
+    // Stein算法——循环实现
+    public static long gcd(long m, long n) {
+        long k = 0;
+        while (m != n) {
+            if (m == 0)
+                return n;
+            if (n == 0)
+                return m;
+            if ((m & 1) == 0 && (n & 1) == 0) {
+                m >>= 1;
+                n >>= 1;
+                k += 1;
+            } else if ((m & 1) == 0){
+                m >>= 1;
+            } else if ((n & 1) == 0){
+                n >>= 1;
+            } else {
+                long tmp = Math.abs(m - n);
+                n = Math.min(m, n);
+                m = tmp;
+            }
+        }
+        return m << k;
+    }
+
+    public static long lcm(long m, long n) {
+        return m * n / gcd(m, n);
+    }
 
 
 }

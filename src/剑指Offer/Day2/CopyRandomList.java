@@ -34,7 +34,9 @@ public class CopyRandomList {
     Map<Node, Node> map = new HashMap<>();
 
     public Node copyRandomList1(Node head) {
+        //非空判断
         if(head == null) return null;
+
         if(!map.containsKey(head)){
             Node node = new Node(head.val);
             map.put(head, node);
@@ -68,6 +70,26 @@ public class CopyRandomList {
         return headNew;
     }
 
+    public Node copyRandomList3(Node head) {
+        if(head == null){
+            return null;
+        }
+        Node cur = head;
+        //利用map建立原节点到新节点的一一对应关系
+        HashMap<Node,Node> map = new HashMap<>();
+        while(cur!=null){
+            map.put(cur,new Node(cur.val));
+            cur = cur.next;
+        }
+        cur=head;
+        while(cur!=null){
+            map.get(cur).next=map.get(cur.next);
+            map.get(cur).random=map.get(cur.random);
+            cur=cur.next;
+        }
+        return map.get(head);
+    }
+
 }
 class Node {
     int val;
@@ -79,4 +101,5 @@ class Node {
         this.next = null;
         this.random = null;
     }
+
 }

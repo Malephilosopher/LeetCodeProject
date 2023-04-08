@@ -18,4 +18,17 @@ public class InsertSort {
             a[j] = tmp;
         }
     }
+
+    public int[] isort(int[] arr){
+        int n = arr.length;
+        int j;
+        for (int i = 1; i < n; i++) {
+            int tmp = arr[i];
+            for (j = i; j > 0 && tmp < arr[j - 1] ; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[j] = tmp;
+        }
+        return arr;
+    }
 }
